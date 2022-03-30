@@ -1,5 +1,5 @@
 {
-  "name": "skypiea-ui",
+  "name": "@salimregragui/skypiea-ui",
   "version": "0.0.1",
   "description": "A react component library, that makes design systems, responsive design and coding a breeze.",
   "main": "lib/index.js",
@@ -49,5 +49,8 @@
   "dependencies": {},
   "files": [
     "/lib"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/salimregragui"
+  }
 }
