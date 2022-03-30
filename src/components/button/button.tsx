@@ -40,6 +40,10 @@ const Button = ({
     ? "storybook-button--primary"
     : "storybook-button--secondary";
 
+  const designSystem = useDesignSystem();
+
+  console.log(designSystem);
+
   return (
     <button
       type="button"

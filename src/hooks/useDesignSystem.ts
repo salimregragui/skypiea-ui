@@ -6,7 +6,7 @@ const useDesignSystem = () => {
   const skypieaUIContext = useContext(SkypieaUIContext);
 
   return {
-    designSystem: (skypieaUIContext as ISkypieaUIContext).state.designSystem,
+    ...(skypieaUIContext as ISkypieaUIContext).state.designSystem,
   };
 };
 
