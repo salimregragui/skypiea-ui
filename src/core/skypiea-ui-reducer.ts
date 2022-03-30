@@ -10,10 +10,14 @@ export interface ISkypieaUIReducerAction {
   payload: any;
 }
 
+const SkypieaUIReducerInitialState: ISkypieaUIReducerState = {
+  designSystem: {},
+};
+
 const SkypieaUIReducer: Reducer<
   ISkypieaUIReducerState,
   ISkypieaUIReducerAction
-> = (state, action) => {
+> = (state = SkypieaUIReducerInitialState, action) => {
   switch (action.type) {
     default:
       return state;

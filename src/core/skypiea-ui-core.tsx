@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import SkypieaUIContext from "./skypiea-ui-context";
 import SkypieaUIReducer, { ISkypieaUIReducerState } from "./skypiea-ui-reducer";
+import useDesignSystem from "../hooks/useDesignSystem";
 
 function SkypieaUI({
   children,

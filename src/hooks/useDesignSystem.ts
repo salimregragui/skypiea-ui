@@ -3,10 +3,10 @@ import { SkypieaUIContext } from "../core";
 import { ISkypieaUIContext } from "../core/skypiea-ui-context";
 
 const useDesignSystem = () => {
-  const skypieaUIContext = useContext(SkypieaUIContext) as ISkypieaUIContext;
+  const skypieaUIContext = useContext(SkypieaUIContext);
 
   return {
-    designSystem: skypieaUIContext.state,
+    designSystem: (skypieaUIContext as ISkypieaUIContext).state.designSystem,
   };
 };
 

@@ -1,10 +1,9 @@
 import { createContext } from "react";
+import { ISkypieaUIReducerState } from "./skypiea-ui-reducer";
 
 export interface ISkypieaUIContext {
-  state: {
-    designSystem: Object;
-  };
-  dispatch: ({ type }: { type: string }) => void;
+  state: ISkypieaUIReducerState;
+  dispatch: any;
 }
 
 const SkypieaUIContext = createContext({});

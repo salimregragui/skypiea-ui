@@ -8,3 +8,13 @@ export const parameters = {
     },
   },
 };
+
+import CoreDecorator from "./coreDecorator";
+
+export const decorators = [
+  (Story) => (
+    <CoreDecorator>
+      <Story />
+    </CoreDecorator>
+  ),
+];
