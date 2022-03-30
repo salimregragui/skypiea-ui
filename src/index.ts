@@ -1,5 +1,7 @@
 import Button from "./components/button";
-import { SkypieaUICore, SkypieaUIReducer, SkypieaUIContext } from "./core";
+import SkypieaUICore from "./core/skypiea-ui-core";
+import SkypieaUIReducer from "./core/skypiea-ui-reducer";
+import SkypieaUIContext from "./core/skypiea-ui-context";
 import useDesignSystem from "./hooks/useDesignSystem";
 
 export { Button };

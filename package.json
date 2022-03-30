@@ -1,6 +1,6 @@
 {
   "name": "@salimregragui/skypiea-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A react component library, that makes design systems, responsive design and coding a breeze.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
