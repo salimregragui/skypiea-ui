@@ -1,19 +1,24 @@
 import React from "react";
-import { Meta } from "@storybook/react/types-6-0";
-import { Story } from "@storybook/react";
-import Button, { ButtonProps } from "../button";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+
+import Button from "../button";
 
 export default {
-  title: "Components/Button",
+  title: "Skypiea-UI/Button",
   component: Button,
-} as Meta;
+} as ComponentMeta<typeof Button>;
 
-// Create a master template for mapping args to render the Button component
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-// Reuse that template for creating different stories
-export const Primary = Template.bind({});
-Primary.args = { label: "Primary 😃", size: "large", onClick: () => console.log("hey") };
-
-export const Secondary = Template.bind({});
-Secondary.args = { ...Primary.args, primary: false, label: "Secondary 😇" };
+export const Solid = Template.bind({});
+Solid.args = {
+  children: "Button",
+  width: "200px",
+  height: "30px",
+  fontSize: "14px",
+  borderRadius: "10px",
+  fs: "14px",
+  fontWeight: "400",
+  fw: "400",
+  border: "1px solid black",
+};

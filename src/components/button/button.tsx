@@ -1,60 +1,67 @@
 import React from "react";
-import "./button.css";
 
 import useDesignSystem from "../../hooks/useDesignSystem";
+import BaseComponentProps from "../../core/interfaces/base-components-props";
+import styled from "styled-components";
 
-export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: "small" | "medium" | "large";
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
+export interface ButtonProps extends BaseComponentProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children: React.ReactNode;
 }
 
-/**
- * Primary UI component for user interaction
- */
-const Button = ({
-  primary = true,
-  backgroundColor,
-  size = "medium",
-  onClick,
-  label,
-}: ButtonProps) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
+const StyledButton = styled.button.attrs((props: ButtonProps) => ({
+  width: props.width || "120px",
+  height: props.height || "40px",
+  fontSize: props.fontSize,
+  fs: props.fs,
+  cursor: props.cursor || "pointer",
+  borderRadius: props.borderRadius,
+  br: props.br,
+  fontWeight: props.fontWeight,
+  fw: props.fw,
+  border: props.border,
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  font-size: ${(props) => props.fontSize || props.fs || "20px"};
+  font-weight: ${(props) => props.fontWeight || props.fw || "400"};
+  cursor: ${(props) => props.cursor};
+  border-radius: ${(props) => props.borderRadius || props.br || "5px"};
+  border: ${(props) => props.border || "1px solid black"};
+  border-left: 1px solid red;
+`;
 
+const Button = ({
+  width,
+  height,
+  fs,
+  fontSize,
+  onClick,
+  children,
+  borderRadius,
+  br,
+  fontWeight,
+  fw,
+  border,
+}: ButtonProps) => {
   const designSystem = useDesignSystem();
 
-  console.log(designSystem);
-
   return (
-    <button
+    <StyledButton
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={backgroundColor ? { backgroundColor } : {}}
       onClick={onClick}
+      width={width}
+      height={height}
+      fs={fs}
+      fontSize={fontSize}
+      borderRadius={borderRadius}
+      br={br}
+      fontWeight={fontWeight}
+      fw={fw}
+      border={border}
     >
-      {label}
-    </button>
+      {children}
+    </StyledButton>
   );
 };
 
