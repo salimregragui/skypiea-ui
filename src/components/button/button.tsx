@@ -28,7 +28,6 @@ const StyledButton = styled.button.attrs((props: ButtonProps) => ({
   cursor: ${(props) => props.cursor};
   border-radius: ${(props) => props.borderRadius || props.br || "5px"};
   border: ${(props) => props.border || "1px solid black"};
-  border-left: 1px solid red;
 `;
 
 const Button = ({
