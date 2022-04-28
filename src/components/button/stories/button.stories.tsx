@@ -13,7 +13,8 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Solid = Template.bind({});
 Solid.args = {
   children: "Button",
-  width: "200px",
+  type: "base",
+  width: "",
   height: "30px",
   fontSize: "14px",
   borderRadius: "10px",
@@ -21,4 +22,11 @@ Solid.args = {
   fontWeight: "400",
   fw: "400",
   border: "1px solid black",
+  transition: "0.2s",
+  color: "blue",
+  hover: {
+    bgColor: "red",
+    transition: "0.2s",
+    border: "2px solid gray",
+  },
 };

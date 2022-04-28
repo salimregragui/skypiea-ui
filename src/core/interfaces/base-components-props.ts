@@ -9,6 +9,11 @@ interface BaseComponentProps {
   fontWeight?: string;
   fw?: string;
   border?: string;
+  transition?: string;
+  hover?: BaseComponentProps;
+  backgroundColor?: string;
+  bgColor?: string;
+  color?: string;
 }
 
 export default BaseComponentProps;
