@@ -171,8 +171,6 @@ const Button = ({
 }: ButtonProps) => {
   const designSystem = useDesignSystem();
 
-  console.log(designSystem);
-
   return (
     <StyledButton
       onClick={onClick}
