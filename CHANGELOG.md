@@ -4,6 +4,19 @@ All notable changes to Skypiea UI will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.3] - 2022-04-30
+
+### Added
+
+- Code comments
+- Multiple css properties
+- as and href props for button
+
+### Changed
+
+- Type of style components props to StyleProps for better type guard
+- splitting of css properties by ";" instead of space to allow for some css properties ex: "b-1px solid black"
+
 ## [0.1.2] - 2022-04-29
 
 ### Added
