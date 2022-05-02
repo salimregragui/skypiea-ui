@@ -4,6 +4,15 @@ All notable changes to Skypiea UI will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.4] - 2022-05-02
+
+### Added
+
+- Box component
+- Font family css property
+
+### Changed
+
 ## [0.1.3] - 2022-04-30
 
 ### Added

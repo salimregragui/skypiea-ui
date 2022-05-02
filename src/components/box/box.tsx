@@ -6,16 +6,13 @@ import styled from "styled-components";
 import generateStyle from "../../core/functions/generate-style";
 import StyleProps from "../../core/interfaces/style-props";
 
-export interface ButtonProps extends BaseComponentProps {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+export interface BoxProps extends BaseComponentProps {
   children: React.ReactNode;
   designSystem?: any;
-  type: string;
   as?: React.ElementType;
-  href?: string;
 }
 
-const StyledButton = styled.button.attrs(
+const StyledBox = styled.div.attrs(
   (props: { styling: StyleProps; as: string }) => ({
     styling: props.styling,
     as: props.as,
@@ -70,7 +67,6 @@ const StyledButton = styled.button.attrs(
   //font properties
   font-size: ${(props) => props.styling && props.styling.fontSize};
   font-weight: ${(props) => props.styling && props.styling.fontWeight};
-  font-family: ${(props) => props.styling && props.styling.fontFamily};
 
   //display properties
   display: ${(props) => props.styling && props.styling.display};
@@ -156,8 +152,6 @@ const StyledButton = styled.button.attrs(
       props.styling.hover && props.styling.hover.fontSize};
     font-weight: ${(props) =>
       props.styling.hover && props.styling.hover.fontWeight};
-    font-family: ${(props) =>
-      props.styling.hover && props.styling.hover.fontFamily};
 
     //display properties
     display: ${(props) => props.styling.hover && props.styling.hover.display};
@@ -177,19 +171,14 @@ const StyledButton = styled.button.attrs(
   }
 `;
 
-const Button = (props: ButtonProps) => {
+const Box = (props: BoxProps) => {
   const designSystem = useDesignSystem();
 
   return (
-    <StyledButton
-      as={props.as}
-      href={props.href}
-      onClick={props.onClick}
-      styling={generateStyle({ ...props })}
-    >
+    <StyledBox as={props.as} styling={generateStyle({ ...props })}>
       {props.children}
-    </StyledButton>
+    </StyledBox>
   );
 };
 
-export default Button;
+export default Box;

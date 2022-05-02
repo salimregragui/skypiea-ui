@@ -47,6 +47,7 @@ const validStyleProps: validStylePropsType = {
   //font properties
   fs: "fontSize",
   fw: "fontWeight",
+  ffam: "fontFamily",
 
   //display properties
   dis: "display",

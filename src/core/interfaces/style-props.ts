@@ -46,6 +46,7 @@ interface StyleProps {
   //font properties
   fontSize?: string;
   fontWeight?: string;
+  fontFamily?: string;
 
   //display properties
   display?: string;
