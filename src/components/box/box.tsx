@@ -5,6 +5,8 @@ import BaseComponentProps from "../../core/interfaces/base-components-props";
 import styled from "styled-components";
 import generateStyle from "../../core/functions/generate-style";
 import StyleProps from "../../core/interfaces/style-props";
+import DefaultBreakPoints from "../../utils/default-breakpoints";
+import generateCssStyle from "../../core/functions/generate-css-style";
 
 export interface BoxProps extends BaseComponentProps {
   children: React.ReactNode;
@@ -18,156 +20,49 @@ const StyledBox = styled.div.attrs(
     as: props.as,
   })
 )`
-  //width properties
-  width: ${(props) => props.styling && props.styling.width};
-  min-width: ${(props) => props.styling && props.styling.minWidth};
-  max-width: ${(props) => props.styling && props.styling.maxWidth};
-
-  //height properties
-  height: ${(props) => props.styling && props.styling.height};
-  min-height: ${(props) => props.styling && props.styling.minHeight};
-  max-height: ${(props) => props.styling && props.styling.maxHeight};
-
-  //background properties
-  background-color: ${(props) =>
-    props.styling && props.styling.backgroundColor};
-  background-image: ${(props) =>
-    props.styling && props.styling.backgroundImage};
-  background: ${(props) => props.styling && props.styling.background};
-  background-size: ${(props) => props.styling && props.styling.backgroundSize};
-  background-repeat: ${(props) =>
-    props.styling && props.styling.backgroundRepeat};
-  background-position: ${(props) =>
-    props.styling && props.styling.backgroundPosition};
-
-  //border properties
-  border: ${(props) => props.styling && props.styling.border};
-  border-left: ${(props) => props.styling && props.styling.borderLeft};
-  border-right: ${(props) => props.styling && props.styling.borderRight};
-  border-top: ${(props) => props.styling && props.styling.borderTop};
-  border-bottom: ${(props) => props.styling && props.styling.borderBottom};
-  border-radius: ${(props) => props.styling && props.styling.borderRadius};
-  border-style: ${(props) => props.styling && props.styling.borderStyle};
-  border-color: ${(props) => props.styling && props.styling.borderColor};
-
-  //padding properties
-  padding: ${(props) => props.styling && props.styling.padding};
-  padding-left: ${(props) => props.styling && props.styling.paddingLeft};
-  padding-right: ${(props) => props.styling && props.styling.paddingRight};
-  padding-top: ${(props) => props.styling && props.styling.paddingTop};
-  padding-bottom: ${(props) => props.styling && props.styling.paddingBottom};
-
-  //margin properties
-  margin: ${(props) => props.styling && props.styling.margin};
-  margin-left: ${(props) => props.styling && props.styling.marginLeft};
-  margin-right: ${(props) => props.styling && props.styling.marginRight};
-  margin-top: ${(props) => props.styling && props.styling.marginTop};
-  margin-bottom: ${(props) => props.styling && props.styling.marginBottom};
-
-  //font properties
-  font-size: ${(props) => props.styling && props.styling.fontSize};
-  font-weight: ${(props) => props.styling && props.styling.fontWeight};
-
-  //display properties
-  display: ${(props) => props.styling && props.styling.display};
-  justify-content: ${(props) => props.styling && props.styling.justifyContent};
-  align-items: ${(props) => props.styling && props.styling.alignItems};
-
-  text-decoration: ${(props) => props.styling && props.styling.textDecoration};
-  box-sizing: ${(props) => props.styling && props.styling.boxSizing};
-  cursor: ${(props) => props.styling && props.styling.cursor};
-  color: ${(props) => props.styling && props.styling.color};
-  transition: ${(props) => props.styling && props.styling.transition};
+  ${(props) => props.styling && generateCssStyle(props.styling)}
 
   &:hover {
-    //width properties
-    width: ${(props) => props.styling.hover && props.styling.hover.width};
-    min-width: ${(props) =>
-      props.styling.hover && props.styling.hover.minWidth};
-    max-width: ${(props) =>
-      props.styling.hover && props.styling.hover.maxWidth};
+    ${(props) => props.styling.hover && generateCssStyle(props.styling.hover)}
+  }
 
-    //height properties
-    height: ${(props) => props.styling.hover && props.styling.hover.height};
-    min-height: ${(props) =>
-      props.styling.hover && props.styling.hover.minHeight};
-    max-height: ${(props) =>
-      props.styling.hover && props.styling.hover.maxHeight};
+  &:focus {
+    ${(props) => props.styling.focus && generateCssStyle(props.styling.focus)}
+  }
 
-    //background properties
-    background-color: ${(props) =>
-      props.styling.hover && props.styling.hover.backgroundColor};
-    background-image: ${(props) =>
-      props.styling.hover && props.styling.hover.backgroundImage};
-    background: ${(props) =>
-      props.styling.hover && props.styling.hover.background};
-    background-size: ${(props) =>
-      props.styling.hover && props.styling.hover.backgroundSize};
-    background-repeat: ${(props) =>
-      props.styling.hover && props.styling.hover.backgroundRepeat};
-    background-position: ${(props) =>
-      props.styling.hover && props.styling.hover.backgroundPosition};
+  @media screen and (min-width: ${DefaultBreakPoints.sm}) {
+    ${(props) =>
+      props.styling.media &&
+      props.styling.media.sm &&
+      generateCssStyle(props.styling.media.sm)}
+  }
 
-    //border properties
-    border: ${(props) => props.styling.hover && props.styling.hover.border};
-    border-left: ${(props) =>
-      props.styling.hover && props.styling.hover.borderLeft};
-    border-right: ${(props) =>
-      props.styling.hover && props.styling.hover.borderRight};
-    border-top: ${(props) =>
-      props.styling.hover && props.styling.hover.borderTop};
-    border-bottom: ${(props) =>
-      props.styling.hover && props.styling.hover.borderBottom};
-    border-radius: ${(props) =>
-      props.styling.hover && props.styling.hover.borderRadius};
-    border-style: ${(props) =>
-      props.styling.hover && props.styling.hover.borderStyle};
-    border-color: ${(props) =>
-      props.styling.hover && props.styling.hover.borderColor};
+  @media screen and (min-width: ${DefaultBreakPoints.md}) {
+    ${(props) =>
+      props.styling.media &&
+      props.styling.media.md &&
+      generateCssStyle(props.styling.media.md)}
+  }
 
-    //padding properties
-    padding: ${(props) => props.styling.hover && props.styling.hover.padding};
-    padding-left: ${(props) =>
-      props.styling.hover && props.styling.hover.paddingLeft};
-    padding-right: ${(props) =>
-      props.styling.hover && props.styling.hover.paddingRight};
-    padding-top: ${(props) =>
-      props.styling.hover && props.styling.hover.paddingTop};
-    padding-bottom: ${(props) =>
-      props.styling.hover && props.styling.hover.paddingBottom};
+  @media screen and (min-width: ${DefaultBreakPoints.lg}) {
+    ${(props) =>
+      props.styling.media &&
+      props.styling.media.lg &&
+      generateCssStyle(props.styling.media.lg)}
+  }
 
-    //margin properties
-    margin: ${(props) => props.styling.hover && props.styling.hover.margin};
-    margin-left: ${(props) =>
-      props.styling.hover && props.styling.hover.marginLeft};
-    margin-right: ${(props) =>
-      props.styling.hover && props.styling.hover.marginRight};
-    margin-top: ${(props) =>
-      props.styling.hover && props.styling.hover.marginTop};
-    margin-bottom: ${(props) =>
-      props.styling.hover && props.styling.hover.marginBottom};
+  @media screen and (min-width: ${DefaultBreakPoints.xl}) {
+    ${(props) =>
+      props.styling.media &&
+      props.styling.media.xl &&
+      generateCssStyle(props.styling.media.xl)}
+  }
 
-    //font properties
-    font-size: ${(props) =>
-      props.styling.hover && props.styling.hover.fontSize};
-    font-weight: ${(props) =>
-      props.styling.hover && props.styling.hover.fontWeight};
-
-    //display properties
-    display: ${(props) => props.styling.hover && props.styling.hover.display};
-    justify-content: ${(props) =>
-      props.styling.hover && props.styling.hover.justifyContent};
-    align-items: ${(props) =>
-      props.styling.hover && props.styling.hover.alignItems};
-
-    text-decoration: ${(props) =>
-      props.styling.hover && props.styling.hover.textDecoration};
-    box-sizing: ${(props) =>
-      props.styling.hover && props.styling.hover.boxSizing};
-    cursor: ${(props) => props.styling.hover && props.styling.hover.cursor};
-    color: ${(props) => props.styling.hover && props.styling.hover.color};
-    transition: ${(props) =>
-      props.styling.hover && props.styling.hover.transition};
+  @media screen and (min-width: ${DefaultBreakPoints["2xl"]}) {
+    ${(props) =>
+      props.styling.media &&
+      props.styling.media["2xl"] &&
+      generateCssStyle(props.styling.media["2xl"])}
   }
 `;
 

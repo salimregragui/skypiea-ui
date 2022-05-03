@@ -4,6 +4,18 @@ All notable changes to Skypiea UI will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.5] - 2022-05-03
+
+### Added
+
+- Media queries styling handled
+- Focus styling handled
+- positioning css properties (top, bottom, ...)
+
+### Changed
+
+- Refator of styled-component styling, in a function. Instead of repeating it everywhere. Saving hundreds of lines of code
+
 ## [0.1.4] - 2022-05-02
 
 ### Added

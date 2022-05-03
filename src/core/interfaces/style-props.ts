@@ -53,11 +53,28 @@ interface StyleProps {
   justifyContent?: string;
   alignItems?: string;
 
+  //positionning properties
+  position?: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+
+  //media queries properties
+  media?: {
+    sm?: StyleProps;
+    md?: StyleProps;
+    lg?: StyleProps;
+    xl?: StyleProps;
+    "2xl"?: StyleProps;
+  };
+
   textDecoration?: string;
   boxSizing?: string;
   cursor?: string;
   transition?: string;
   hover?: StyleProps;
+  focus?: StyleProps;
   color?: string;
 }
 

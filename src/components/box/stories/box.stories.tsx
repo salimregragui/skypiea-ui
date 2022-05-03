@@ -15,9 +15,13 @@ Solid.args = {
   children: "Box",
   hover: "fs-18px; w-400px",
   style: "fs-14px; w-300px",
+  focus: "b-2px solid green;",
   bgImage: "",
   background: "",
   bgSize: "",
   bgRepeat: "",
   bgPos: "",
+  media: {
+    sm: "fs-10px; w-120px;",
+  },
 };

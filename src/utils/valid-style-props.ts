@@ -54,6 +54,13 @@ const validStyleProps: validStylePropsType = {
   jc: "justifyContent",
   ai: "alignItems",
 
+  //positionning properties
+  pos: "position",
+  top: "top",
+  bottom: "bottom",
+  left: "left",
+  right: "right",
+
   td: "textDecoration",
   cur: "cursor",
   color: "color",
