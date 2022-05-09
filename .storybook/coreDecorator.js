@@ -8,17 +8,26 @@ const ThemeDecorator = (props) => (
       button: {
         base: {
           width: "200px",
-          height: "40px",
+          height: "60px",
           fontSize: "16px",
           fontWeight: "600",
           transition: "0.2s",
           color: "green",
           hover: {
-            width: "300px",
-            transition: "0.2s",
-            color: "blue",
-            cursor: "pointer",
+            background: "green",
+            borderRadius: "5px",
           },
+        },
+      },
+      box: {
+        base: {
+          width: "200px",
+          height: "60px",
+          fontSize: "16px",
+          fontWeight: "600",
+          transition: "0.2s",
+          color: "green",
+          backgroundColor: "red",
         },
       },
     }}

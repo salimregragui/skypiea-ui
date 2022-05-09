@@ -77,7 +77,11 @@ const Button = (props: ButtonProps) => {
       as={props.as}
       href={props.href}
       onClick={props.onClick}
-      styling={generateStyle({ ...props })}
+      styling={generateStyle({
+        ...props,
+        component: "button",
+        designSystem: designSystem,
+      })}
     >
       {props.children}
     </StyledButton>

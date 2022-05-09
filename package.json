@@ -1,6 +1,6 @@
 {
-  "name": "@salimregragui/skypiea-ui",
-  "version": "0.1.4",
+  "name": "skypiea-ui",
+  "version": "0.1.6",
   "description": "A react component library, that makes design systems, responsive design and coding a breeze.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -52,7 +52,12 @@
   "files": [
     "/lib"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/salimregragui"
-  }
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/salimregragui/skypiea-ui.git"
+  },
+  "bugs": {
+      "url": "https://github.com/salimregragui/skypiea-ui/issues"
+  },
+  "homepage": "https://github.com/salimregragui/skypiea-ui#readme"
 }

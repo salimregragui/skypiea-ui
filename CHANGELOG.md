@@ -4,6 +4,15 @@ All notable changes to Skypiea UI will be documented in this file.
 
 ## [Unreleased]
 
+## [0.1.6] - 2022-05-07
+
+### Added
+
+- Design system handling in style generator
+
+### Changed
+- useDesignSystem hooks no longer returns an  object containing a key designSystem. It just returns the designSystem.
+
 ## [0.1.5] - 2022-05-03
 
 ### Added
@@ -22,8 +31,6 @@ All notable changes to Skypiea UI will be documented in this file.
 
 - Box component
 - Font family css property
-
-### Changed
 
 ## [0.1.3] - 2022-04-30
 

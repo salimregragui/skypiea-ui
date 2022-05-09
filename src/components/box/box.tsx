@@ -12,6 +12,7 @@ export interface BoxProps extends BaseComponentProps {
   children: React.ReactNode;
   designSystem?: any;
   as?: React.ElementType;
+  type: string;
 }
 
 const StyledBox = styled.div.attrs(
@@ -70,7 +71,14 @@ const Box = (props: BoxProps) => {
   const designSystem = useDesignSystem();
 
   return (
-    <StyledBox as={props.as} styling={generateStyle({ ...props })}>
+    <StyledBox
+      as={props.as}
+      styling={generateStyle({
+        ...props,
+        component: "box",
+        designSystem: designSystem,
+      })}
+    >
       {props.children}
     </StyledBox>
   );

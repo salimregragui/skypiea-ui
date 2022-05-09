@@ -3,7 +3,22 @@ import BaseComponentProps from "../interfaces/base-components-props";
 import MediaStyleProps from "../interfaces/media-style-props";
 import StyleProps from "../interfaces/style-props";
 
-const generateStyle = (stylingProps: BaseComponentProps) => {
+interface StyleGeneratorProps {
+  style?: string;
+  hover?: string;
+  focus?: string;
+  media?: MediaStyleProps;
+  bgImage?: string;
+  background?: string;
+  bgPos?: string;
+  bgSize?: string;
+  bgRepeat?: string;
+  designSystem?: any;
+  component: string;
+  type: string;
+}
+
+const generateStyle = (stylingProps: StyleGeneratorProps) => {
   //variables that will store the split styling ex: "fs-14px w-200px" => ["fs-14px", "w-200px"]
   let splitStyle: string[] = [];
   let splitHoverStyle: string[] = [];
@@ -11,6 +26,26 @@ const generateStyle = (stylingProps: BaseComponentProps) => {
 
   //Object that stores the final style detected from the styling strings on the component
   const finalStyle: StyleProps = {};
+
+  //if there is a design system specified by the dev in the core we get it's values into the styling
+  if (stylingProps.designSystem) {
+    //if the designSystem contains styling for the component
+    if (stylingProps.designSystem[stylingProps.component]) {
+      //if the designSystem for the component has styling for the specified type
+      if (
+        stylingProps.designSystem[stylingProps.component][stylingProps.type]
+      ) {
+        for (let designSystemStyleKey in stylingProps.designSystem[
+          stylingProps.component
+        ][stylingProps.type]) {
+          finalStyle[designSystemStyleKey as keyof StyleProps] =
+            stylingProps.designSystem[stylingProps.component][
+              stylingProps.type
+            ][designSystemStyleKey];
+        }
+      }
+    }
+  }
 
   //if the dev specified the base style,hover and focus style strings we split them
   if (stylingProps.style) {
@@ -47,8 +82,8 @@ const generateStyle = (stylingProps: BaseComponentProps) => {
   });
 
   //We initialize hover in order to not get error on trying to access a value from a non
-  //existing property
-  finalStyle["hover"] = {};
+  //existing property if the styling is not specified in the designSystem
+  if (!finalStyle.hover) finalStyle["hover"] = {};
 
   //We do the same thing we did on base style, but with hover
   splitHoverStyle.forEach((styleComponent: string) => {

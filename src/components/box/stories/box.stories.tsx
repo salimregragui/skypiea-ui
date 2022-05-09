@@ -16,6 +16,7 @@ Solid.args = {
   hover: "fs-18px; w-400px",
   style: "fs-14px; w-300px",
   focus: "b-2px solid green;",
+  type: "base",
   bgImage: "",
   background: "",
   bgSize: "",

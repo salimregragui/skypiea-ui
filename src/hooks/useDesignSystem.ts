@@ -5,9 +5,7 @@ import { ISkypieaUIContext } from "../core/skypiea-ui-context";
 const useDesignSystem = () => {
   const skypieaUIContext = useContext(SkypieaUIContext);
 
-  return {
-    designSystem: (skypieaUIContext as ISkypieaUIContext).state.designSystem,
-  };
+  return (skypieaUIContext as ISkypieaUIContext).state.designSystem;
 };
 
 export default useDesignSystem;
